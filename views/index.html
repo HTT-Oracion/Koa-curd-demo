@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <!-- <h1 class="title">This is index page</h1>
+  <h2><%= title %></h2>
+  <h3><%= username%> <br /> <%= msg%> --- <%= date%></h3>
+  <h4>{{addr}}</h4>
+  <form action="/addPage" method="post">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <button type="submit">提交</button> -->
+  <h1>index page</h1>
+  <table border="1" width="500" cellspacing="0" align="center">
+    <thead align="center">
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody align="center">
+      {{each userList}}
+      <tr>
+        <td>{{$value.username}}</td>
+        <td>{{$value.age}}</td>
+        <td>{{$value.sex}}</td>
+        <td>
+          <a href="/edit?id={{@$value._id}}">编辑</a>
+          <a href="/delete?id={{@$value._id}}">删除</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <a href="/add">添加用户</a>
+  </form>
+
+</html>
